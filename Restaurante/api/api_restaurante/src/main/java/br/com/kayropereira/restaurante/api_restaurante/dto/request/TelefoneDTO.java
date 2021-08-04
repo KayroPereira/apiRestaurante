@@ -1,16 +1,13 @@
 package br.com.kayropereira.restaurante.api_restaurante.dto.request;
 
-import br.com.kayropereira.restaurante.api_restaurante.entity.ClienteAvulso;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -28,7 +25,7 @@ public class TelefoneDTO {
 
     @NotNull
     @NotEmpty
-    @JsonProperty("fk_tipo_telefone_id")
+    @JsonProperty("tipoTelefone")
     private Long idTipoTelefone;
 
     static Predicate<TelefoneDTO> elementEmpty = e -> {

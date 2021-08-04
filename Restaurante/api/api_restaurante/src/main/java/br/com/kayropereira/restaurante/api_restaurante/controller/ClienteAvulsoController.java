@@ -2,7 +2,6 @@ package br.com.kayropereira.restaurante.api_restaurante.controller;
 
 import br.com.kayropereira.restaurante.api_restaurante.dto.request.ClienteAvulsoDTO;
 import br.com.kayropereira.restaurante.api_restaurante.dto.response.MessageResponseDTO;
-import br.com.kayropereira.restaurante.api_restaurante.entity.ClienteAvulso;
 import br.com.kayropereira.restaurante.api_restaurante.service.ClienteAvulsoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +23,4 @@ public class ClienteAvulsoController {
         System.out.println(clienteAvulsoDTO);
         return clienteAvulsoService.createClienteAvulso(clienteAvulsoDTO);
     }
-
-
-//    public MessageResponseDTO createClienteAvulso(@RequestBody @Valid ClienteAvulso clienteAvulsoDTO){
-//        System.out.println(clienteAvulsoDTO);
-//        return clienteAvulsoService.createClienteAvulso(clienteAvulsoDTO);
-//    }
 }

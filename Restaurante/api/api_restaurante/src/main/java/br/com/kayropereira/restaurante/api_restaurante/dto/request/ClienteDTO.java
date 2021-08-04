@@ -1,7 +1,6 @@
 package br.com.kayropereira.restaurante.api_restaurante.dto.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,39 +18,33 @@ import java.util.List;
    |            JSON Test                  |
    -----------------------------------------
     {
+        "nome" : "teste",
+        "senha" : "Pedepano21@@",
+        "dataNascimento" : "11-11-1211",
         "telefones" : [
             {
                 "numero" : "81998877633",
-                "tipoTelefone" : 2
-            },
-
-            {
-                "numero" : "81982771743",
                 "tipoTelefone" : 3
-            },
-
-            {
-                "numero" : "81123456789",
-                "tipoTelefone" : 4
             }
         ]
     }
 
-    select cla.clt_av_id, cla.clt_av_data_criacao, tf.tf_id, tf.tf_numero, ttf.tp_tf_descricao
-    from cliente_avulso cla
-        inner join cliente_avulso_telefone clat
-        on clat.clt_av_id = cla.clt_av_id
+    select usr.usr_id, usr.usr_nome, usr.usr_senha, usr.usr_data_criacao, cl.cl_id, cl.cl_data_criacao, cl.cl_data_nascimento, tf.tf_id, tf.tf_numero, ttf.tp_tf_descricao
+    from usuario usr
+        inner join cliente cl
+        on usr.usr_id = cl.usr_id
+        inner join cliente_telefone clt
+        on clt.cl_id = cl.cl_id
         inner join telefone tf
-        on clat.tf_id = tf.tf_id
+        on clt.tf_id = tf.tf_id
         inner join tipo_telefone ttf
         on ttf.tp_tf_id = tf.tp_tf_id;
  */
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteAvulsoDTO {
+public class ClienteDTO extends UsuarioDTO{
 
     private Long id;
 
@@ -59,7 +52,11 @@ public class ClienteAvulsoDTO {
     @Temporal(TemporalType.DATE)
     @NotEmpty
     @NotNull
-    private String dataCriacao = DateTimeFormatter.ofPattern("dd-MM-YYYY").format(LocalDateTime.now());
+    private String dataCriacaoCl = DateTimeFormatter.ofPattern("dd-MM-YYYY").format(LocalDateTime.now());
+
+    @NotEmpty
+    @NotNull
+    private String dataNascimento;
 
     @NotEmpty
     @NotNull

@@ -1,6 +1,5 @@
 package br.com.kayropereira.restaurante.api_restaurante.dto.request;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
