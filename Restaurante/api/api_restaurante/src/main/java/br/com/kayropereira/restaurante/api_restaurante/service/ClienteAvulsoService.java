@@ -19,27 +19,20 @@ public class ClienteAvulsoService {
     private final ClienteAvulsoMapper clienteAvulsoMapper = ClienteAvulsoMapper.INSTANCE;
 
     public MessageResponseDTO createClienteAvulso(ClienteAvulsoDTO clienteAvulsoDTO){
-        System.out.println("Service - clienteAvulsoDTO " + clienteAvulsoDTO);
+//        System.out.println("Service - clienteAvulsoDTO " + clienteAvulsoDTO);
 
         if(TelefoneDTO.hasElementsEmpy(clienteAvulsoDTO.getTelefones())){
-            System.out.println("return");
+//            System.out.println("return");
             return createMessageResponse(404L, "Elementos vazios");
         }
 
         ClienteAvulso clienteAvulso = clienteAvulsoMapper.toModel(clienteAvulsoDTO);
 
-        System.out.println("Service - clienteAvulso " + clienteAvulso);
+//        System.out.println("Service - clienteAvulso " + clienteAvulso);
 
         ClienteAvulso clienteAvulsoSalvar = clienteAvulsoRepository.save(clienteAvulso);
         return createMessageResponse(clienteAvulsoSalvar.getId(), "Criado cliente avulso com Id ");
     }
-
-//    public MessageResponseDTO createClienteAvulso(ClienteAvulso clienteAvulsoDTO){
-////        ClienteAvulso clienteAvulso = clienteAvulsoMapper.toModel(clienteAvulsoDTO);
-//
-//        ClienteAvulso clienteAvulsoSalvar = clienteAvulsoRepository.save(clienteAvulsoDTO);
-//        return createMessageResponse(clienteAvulsoSalvar.getId(), "Criado cliente avulso com Id ");
-//    }
 
     private MessageResponseDTO createMessageResponse(Long id, String mensagem) {
         return MessageResponseDTO.builder()
