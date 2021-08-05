@@ -12,13 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "usr_id")
+@PrimaryKeyJoinColumn(name = "usu_usr_id")
 public class Cliente extends Usuario{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cl_id")
-    private Long id;
 
     @Column(name = "cl_data_criacao", nullable = false)
     private LocalDate dataCriacaoCl;
@@ -28,8 +23,8 @@ public class Cliente extends Usuario{
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "cliente_telefone",
-            joinColumns = @JoinColumn(name = "cl_id"),
-            inverseJoinColumns = @JoinColumn(name = "tf_id"))
+            joinColumns = @JoinColumn(name = "usu_usr_id", referencedColumnName = "usu_usr_id"),
+            inverseJoinColumns = @JoinColumn(name = "tf_id", referencedColumnName = "tf_id"))
     @Column(nullable = false)
     private List<Telefone> telefones;
 }

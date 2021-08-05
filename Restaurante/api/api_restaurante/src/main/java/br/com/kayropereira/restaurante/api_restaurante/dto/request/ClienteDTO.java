@@ -18,23 +18,23 @@ import java.util.List;
    |            JSON Test                  |
    -----------------------------------------
     {
-        "nome" : "teste",
+        "nome" : "teste1",
         "senha" : "Pedepano21@@",
         "dataNascimento" : "11-11-1211",
         "telefones" : [
             {
-                "numero" : "81998877633",
-                "tipoTelefone" : 3
+                "numero" : "81998872233",
+                "tipoTelefone" : 2
             }
         ]
     }
 
-    select usr.usr_id, usr.usr_nome, usr.usr_senha, usr.usr_data_criacao, cl.cl_id, cl.cl_data_criacao, cl.cl_data_nascimento, tf.tf_id, tf.tf_numero, ttf.tp_tf_descricao
+    select usr.usr_id, usr.usr_nome, usr.usr_senha, usr.usr_data_criacao, cl.usu_usr_id, cl.cl_data_criacao, cl.cl_data_nascimento, tf.tf_id, tf.tf_numero, ttf.tp_tf_descricao
     from usuario usr
         inner join cliente cl
-        on usr.usr_id = cl.usr_id
+        on usr.usr_id = cl.usu_usr_id
         inner join cliente_telefone clt
-        on clt.cl_id = cl.cl_id
+        on clt.usu_usr_id = cl.usu_usr_id
         inner join telefone tf
         on clt.tf_id = tf.tf_id
         inner join tipo_telefone ttf
@@ -46,13 +46,11 @@ import java.util.List;
 @NoArgsConstructor
 public class ClienteDTO extends UsuarioDTO{
 
-    private Long id;
-
     @Valid
     @Temporal(TemporalType.DATE)
     @NotEmpty
     @NotNull
-    private String dataCriacaoCl = DateTimeFormatter.ofPattern("dd-MM-YYYY").format(LocalDateTime.now());
+    private String dataCriacaoCl = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDateTime.now());
 
     @NotEmpty
     @NotNull
