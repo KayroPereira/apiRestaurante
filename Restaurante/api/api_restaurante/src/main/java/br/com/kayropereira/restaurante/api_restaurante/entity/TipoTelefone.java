@@ -7,17 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-/*
-   -----------------------------------------
-   |            JSON Test                  |
-   -----------------------------------------
-    {
-        "descricao" : "Celular"
-    }
-
-    select * from tipo_telefone;
- */
-
 @Entity
 @Table(name = "tipo_telefone")
 @Data

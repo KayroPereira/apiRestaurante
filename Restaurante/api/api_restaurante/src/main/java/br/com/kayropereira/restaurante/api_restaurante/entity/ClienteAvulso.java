@@ -27,8 +27,8 @@ public class ClienteAvulso {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "cliente_avulso_telefone",
-        joinColumns = @JoinColumn(name = "clt_av_id"),
-        inverseJoinColumns = @JoinColumn(name = "tf_id"))
+        joinColumns = @JoinColumn(name = "clt_av_id", referencedColumnName = "clt_av_id"),
+        inverseJoinColumns = @JoinColumn(name = "tf_id", referencedColumnName = "tf_id"))
     @Column(nullable = false)
     private List<Telefone> telefones;
 }

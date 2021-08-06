@@ -22,17 +22,17 @@ import java.util.List;
         "telefones" : [
             {
                 "numero" : "81998877633",
-                "tipoTelefone" : 2
+                "tipoTelefone" : 1
             },
 
             {
                 "numero" : "81982771743",
-                "tipoTelefone" : 3
+                "tipoTelefone" : 2
             },
 
             {
                 "numero" : "81123456789",
-                "tipoTelefone" : 4
+                "tipoTelefone" : 3
             }
         ]
     }

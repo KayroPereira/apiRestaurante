@@ -8,6 +8,17 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+/*
+   -----------------------------------------
+   |            JSON Test                  |
+   -----------------------------------------
+    {
+        "descricao" : "Celular"
+    }
+
+    select * from tipo_telefone;
+*/
+
 @Data
 @Builder
 @AllArgsConstructor
