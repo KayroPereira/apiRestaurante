@@ -24,6 +24,7 @@ public class ClienteService {
         Cliente cliente = clienteMapper.toModel(clienteDTO);
 
         System.out.println(cliente);
+        System.out.println("Nome: " + cliente.getNome() + " Id: " + cliente.getId() + " Senha: " + cliente.getSenha());
 
         Cliente clienteSalvar = clienteRepository.save(cliente);
         return createMessageResponse(clienteSalvar.getId(), "Cliente criado com Id ");
