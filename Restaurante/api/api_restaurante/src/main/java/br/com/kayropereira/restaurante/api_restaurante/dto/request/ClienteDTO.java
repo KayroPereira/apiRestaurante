@@ -39,7 +39,7 @@ import java.util.List;
         on clt.tf_id = tf.tf_id
         inner join tipo_telefone ttf
         on ttf.tp_tf_id = tf.tp_tf_id;
- */
+*/
 
 @Data
 @AllArgsConstructor
