@@ -13,18 +13,20 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usr_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "usr_nome")
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "usr_senha")
     private String senha;
 
-    @Column(name = "data_criacao", nullable = false)
+    @Column(name = "usr_data_criacao", nullable = false)
     private LocalDate dataCriacao;
 }

@@ -17,8 +17,9 @@ public class TipoTelefone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tp_tf_id")
     private Integer id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, name = "tp_tf_descricao")
     private String descricao;
 }

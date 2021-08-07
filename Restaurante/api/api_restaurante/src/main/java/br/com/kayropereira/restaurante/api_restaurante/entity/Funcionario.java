@@ -13,16 +13,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "usu_usr_id")
-public class Cliente extends Usuario{
+public class Funcionario extends Usuario{
 
-    @Column(name = "cl_data_criacao", nullable = false)
-    private LocalDate dataCriacaoCl;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "fncr_id")
+//    private Long id;
+//
+    @Column(name = "fncr_data_criacao", nullable = false)
+    private LocalDate dataCriacaoFn;
 
-    @Column(name = "cl_data_nascimento", nullable = false)
+    @Column(name = "fncr_data_nascimento", nullable = false)
     private LocalDate dataNascimento;
 
+    @Column(name = "fncr_cpf", nullable = false)
+    private String CPF;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "cliente_telefone",
+    @JoinTable(name = "funcionario_telefone",
             joinColumns = @JoinColumn(name = "usu_usr_id", referencedColumnName = "usu_usr_id"),
             inverseJoinColumns = @JoinColumn(name = "tf_id", referencedColumnName = "tf_id"))
     @Column(nullable = false)
